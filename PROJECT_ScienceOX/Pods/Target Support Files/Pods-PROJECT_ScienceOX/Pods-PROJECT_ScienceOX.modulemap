@@ -1,0 +1,6 @@
+framework module Pods_PROJECT_ScienceOX {
+  umbrella header "Pods-PROJECT_ScienceOX-umbrella.h"
+
+  export *
+  module * { export * }
+}
