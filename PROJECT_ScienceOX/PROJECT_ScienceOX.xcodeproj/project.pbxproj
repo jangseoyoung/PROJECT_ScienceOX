@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -48,7 +48,6 @@
 				EC793A3CDCD9C62739A9F7E7 /* Pods-PROJECT_ScienceOX.debug.xcconfig */,
 				B213036AC3A88016FC96269D /* Pods-PROJECT_ScienceOX.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +80,47 @@
 		EF5D93FC259D599700965ECC /* PROJECT_ScienceOX */ = {
 			isa = PBXGroup;
 			children = (
+				EF5D9419259F66C100965ECC /* UI */,
+				EF5D941D259F66DB00965ECC /* Model */,
+				EF5D941B259F66C900965ECC /* VC */,
+				EF5D941C259F66D200965ECC /* Networking */,
 				EF5D93FD259D599700965ECC /* AppDelegate.swift */,
 				EF5D93FF259D599700965ECC /* SceneDelegate.swift */,
-				EF5D9401259D599700965ECC /* ViewController.swift */,
-				EF5D9403259D599700965ECC /* Main.storyboard */,
 				EF5D9406259D599800965ECC /* Assets.xcassets */,
 				EF5D9408259D599800965ECC /* LaunchScreen.storyboard */,
 				EF5D940B259D599800965ECC /* Info.plist */,
 			);
 			path = PROJECT_ScienceOX;
+			sourceTree = "<group>";
+		};
+		EF5D9419259F66C100965ECC /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EF5D9403259D599700965ECC /* Main.storyboard */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EF5D941B259F66C900965ECC /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				EF5D9401259D599700965ECC /* ViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		EF5D941C259F66D200965ECC /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EF5D941D259F66DB00965ECC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
