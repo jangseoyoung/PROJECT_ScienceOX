@@ -17,6 +17,7 @@
 		EF5D9405259D599700965ECC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5D9403259D599700965ECC /* Main.storyboard */; };
 		EF5D9407259D599800965ECC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5D9406259D599800965ECC /* Assets.xcassets */; };
 		EF5D940A259D599800965ECC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5D9408259D599800965ECC /* LaunchScreen.storyboard */; };
+		EF7A2F0D25A337BC00B225F7 /* TmonMonsori.otf.otf in Resources */ = {isa = PBXBuildFile; fileRef = EF7A2F0C25A337AA00B225F7 /* TmonMonsori.otf.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		EF5D9406259D599800965ECC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF5D9409259D599800965ECC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF5D940B259D599800965ECC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF7A2F0C25A337AA00B225F7 /* TmonMonsori.otf.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TmonMonsori.otf.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				EF5D941B259F66C900965ECC /* VC */,
 				EF5D941C259F66D200965ECC /* Networking */,
 				EF5D93FD259D599700965ECC /* AppDelegate.swift */,
+				EF7A2F0C25A337AA00B225F7 /* TmonMonsori.otf.otf */,
 				EF5D93FF259D599700965ECC /* SceneDelegate.swift */,
 				EF5D9406259D599800965ECC /* Assets.xcassets */,
 				EF5D9408259D599800965ECC /* LaunchScreen.storyboard */,
@@ -193,6 +196,7 @@
 			files = (
 				EF5D940A259D599800965ECC /* LaunchScreen.storyboard in Resources */,
 				EF5D9407259D599800965ECC /* Assets.xcassets in Resources */,
+				EF7A2F0D25A337BC00B225F7 /* TmonMonsori.otf.otf in Resources */,
 				EF5D9405259D599700965ECC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
