@@ -91,11 +91,17 @@
                                 <rect key="frame" x="69" y="637" width="87" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="135344280_720978051862148_6663737093175115234_n"/>
+                                <connections>
+                                    <action selector="correctButton:" destination="sDw-03-4PO" eventType="touchUpInside" id="pTx-D5-ZIz"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCB-q5-AEV">
                                 <rect key="frame" x="219" y="637" width="87" height="86"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="135190311_225687285759226_5542597357856014068_n"/>
+                                <connections>
+                                    <action selector="incorrectButton:" destination="sDw-03-4PO" eventType="touchUpInside" id="CLH-cz-Hfa"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Q" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tt7-2H-Rjg">
                                 <rect key="frame" x="177" y="147" width="20" height="31"/>
