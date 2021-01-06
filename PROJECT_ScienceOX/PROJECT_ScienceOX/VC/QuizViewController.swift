@@ -14,18 +14,37 @@ class QuizViewController: UIViewController {
     private var getmodel : ProvideQuizModel?
     private var postmodel : CheckModel?
     
+    @IBOutlet weak var quizLabel : UILabel!
+    
     @IBAction func correctButton(_ sender : UIButton){
-        
+        CheckAnswer(correct: "1")
     }
     
     @IBAction func incorrectButton(_ sender : UIButton){
-        
+        CheckAnswer(correct: "0")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func GetQuiz(question : String){
+        httpclient.get(.ProvideQuiz(question)).responseJSON(completionHandler: {(response) in
+            switch response.response?.statusCode{
+            case 200:
+                guard let data = response.data else {return}
+                guard let model = try? JSONDecoder().decode(ProvideQuizModel.self, from: data) else {return}
+                self.getmodel = model
+                
+                self.quizLabel.text = model.question
+            case 404:
+                print("NOT FOUND")
+            default:
+                print("알 수 없는 오류")
+            }
+        })
     }
     
     
@@ -66,16 +85,16 @@ class QuizViewController: UIViewController {
             }
         })
     }
-
-
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
