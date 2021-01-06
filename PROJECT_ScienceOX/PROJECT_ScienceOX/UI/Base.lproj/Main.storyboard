@@ -122,6 +122,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" title="Science OX" id="dKA-bC-1Gn"/>
+                    <connections>
+                        <outlet property="quizLabel" destination="Fzo-wv-1vB" id="Wub-df-XNv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xbt-wz-9Sp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
