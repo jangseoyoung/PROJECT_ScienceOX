@@ -13,8 +13,13 @@ class QuizViewController: UIViewController {
     let httpclient = HTTPClient()
     private var getmodel : ProvideQuizModel?
     private var postmodel : CheckModel?
+    var quiz = String()
     
     @IBOutlet weak var quizLabel : UILabel!
+    
+    @IBAction func quiz(_ sender : UILabel){
+        
+    }
     
     @IBAction func correctButton(_ sender : UIButton){
         CheckAnswer(correct: "1")
@@ -26,18 +31,21 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        GetQuiz()
         // Do any additional setup after loading the view.
     }
     
-    func GetQuiz(question : String){
-        httpclient.get(.ProvideQuiz(question)).responseJSON(completionHandler: {(response) in
+    override func viewDidAppear(_ animated: Bool) {
+        self.reloadInputViews()
+    }
+    
+    func GetQuiz(){
+        httpclient.get(.ProvideQuiz(quiz)).responseJSON(completionHandler: {(response) in
             switch response.response?.statusCode{
             case 200:
                 guard let data = response.data else {return}
                 guard let model = try? JSONDecoder().decode(ProvideQuizModel.self, from: data) else {return}
                 self.getmodel = model
-                
                 self.quizLabel.text = model.question
             case 404:
                 print("NOT FOUND")
