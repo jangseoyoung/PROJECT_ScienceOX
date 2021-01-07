@@ -30,9 +30,6 @@ enum NetworkingAPI{
     
     var parameters : [String:Any]{
         switch self {
-        case .ProvideQuiz(let question):
-            print(["qusetion" : question])
-            return ["question" : question]
         case .Check(let correct):
             print(["correct" : correct])
             return ["correct" : correct]
