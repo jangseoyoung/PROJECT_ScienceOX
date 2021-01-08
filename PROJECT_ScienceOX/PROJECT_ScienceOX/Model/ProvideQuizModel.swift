@@ -10,4 +10,5 @@ import Alamofire
 
 struct ProvideQuizModel : Codable {
     var question : String
+    var isCorrect : String
 }
