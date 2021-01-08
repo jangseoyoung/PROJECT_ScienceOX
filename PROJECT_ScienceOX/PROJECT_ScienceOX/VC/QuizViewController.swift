@@ -12,97 +12,57 @@ class QuizViewController: UIViewController {
     
     let httpclient = HTTPClient()
     private var getmodel : ProvideQuizModel?
-    private var postmodel : CheckModel?
+
     var quiz = String()
+    var isCorrect = String()
+    var correct = String()
     
     @IBOutlet weak var quizLabel : UILabel!
     
-    @IBAction func quiz(_ sender : UILabel){
-        
-    }
     
     @IBAction func correctButton(_ sender : UIButton){
-        CheckAnswer(correct: "1")
+        correct = "1"
     }
     
     @IBAction func incorrectButton(_ sender : UIButton){
-        CheckAnswer(correct: "0")
+       correct = "0"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GetQuiz()
         // Do any additional setup after loading the view.
+        self.quizLabel.text = quiz
+        Quiz()
+        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.reloadInputViews()
-    }
-    
-    func GetQuiz(){
-        httpclient.get(.ProvideQuiz(quiz)).responseJSON(completionHandler: {(response) in
+    func Quiz(){
+        httpclient.get(.ProvideQuiz(quiz, isCorrect: isCorrect)).responseJSON(completionHandler: {(response) in
             switch response.response?.statusCode{
-            case 200:
+            case 200 :
+                print("get success")
                 guard let data = response.data else {return}
                 guard let model = try? JSONDecoder().decode(ProvideQuizModel.self, from: data) else {return}
                 self.getmodel = model
-                self.quizLabel.text = model.question
-            case 404:
-                print("NOT FOUND")
-            default:
-                print("알 수 없는 오류")
-            }
-        })
-    }
-    
-    
-    func CheckAnswer(correct : String){
-        httpclient.post(.Check(correct)).responseJSON(completionHandler: {(response) in
-            switch response.response?.statusCode{
-            case 200:
-                print("채점 성공")
-                guard let data = response.data else {return}
-                guard let model = try? JSONDecoder().decode(CheckModel.self, from: data) else {return}
-                self.postmodel = model
                 
-                if model.correct == "1"{
+                if model.isCorrect == self.correct{
                     let alert = UIAlertController(title: "정답입니다!", message: nil, preferredStyle: UIAlertController.Style.alert)
                     let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
                 }
-                
-                else if model.correct == "0"{
+                else{
                     let alert = UIAlertController(title: "틀렸습니다!", message: nil, preferredStyle: UIAlertController.Style.alert)
                     let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: nil)
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
                 }
-                
-                else {
-                    print("오류입니다.")
-                }
-                
-            case 400:
-                print("BAD REQUEST")
-            case 404:
+            case 404 :
                 print("NOT FOUND")
-            default:
-                print("알 수 없는 오류")
-                
+            default :
+                print(response.response?.statusCode)
             }
         })
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+
 }
