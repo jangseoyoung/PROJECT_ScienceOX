@@ -12,48 +12,83 @@ class QuizViewController: UIViewController {
     
     let httpclient = HTTPClient()
     private var getmodel : ProvideQuizModel?
-
-    var quiz = String()
-    var isCorrect = String()
-    var correct = String()
     
-    @IBOutlet weak var quizLabel : UILabel!
+    var quiz = String()
+    var isCorrect = Bool()
+    var correct = Bool()
+    
+    @IBOutlet weak var quizTextView : UITextView!
     
     
     @IBAction func correctButton(_ sender : UIButton){
-        correct = "1"
+        correct = true
+        Answer()
     }
     
     @IBAction func incorrectButton(_ sender : UIButton){
-       correct = "0"
+        correct = false
+        Answer()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.quizLabel.text = quiz
+        self.quizTextView.textColor = UIColor.white
         Quiz()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        reloadInputViews()
+    }
     
     func Quiz(){
-        httpclient.get(.ProvideQuiz(quiz, isCorrect: isCorrect)).responseJSON(completionHandler: {(response) in
+        httpclient.get(NetworkingAPI.ProvideQuiz(quiz, isCorrect)).responseJSON {(response) in
             switch response.response?.statusCode{
             case 200 :
                 print("get success")
                 guard let data = response.data else {return}
                 guard let model = try? JSONDecoder().decode(ProvideQuizModel.self, from: data) else {return}
                 self.getmodel = model
+                self.quizTextView.text = model.question
+            case 404 :
+                print("NOT FOUND")
+                id = 1
+                let alert = UIAlertController(title: "게임이 끝났습니다.", message: nil, preferredStyle: UIAlertController.Style.alert)
+                let cancelAction = UIAlertAction(title: "확인", style: .cancel) {
+                    (action) in self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(cancelAction)
+                self.present(alert, animated: true, completion: nil)
+                
+            default :
+                print(response.response?.statusCode)
+            }
+        }
+    }
+    
+    func Answer(){
+        httpclient.get(NetworkingAPI.ProvideQuiz(quiz, isCorrect)).responseJSON {(response) in
+            switch response.response?.statusCode{
+            case 200:
+                guard let data = response.data else {return}
+                guard let model = try? JSONDecoder().decode(ProvideQuizModel.self, from: data) else {return}
+                self.getmodel = model
                 
                 if model.isCorrect == self.correct{
                     let alert = UIAlertController(title: "정답입니다!", message: nil, preferredStyle: UIAlertController.Style.alert)
-                    let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    id = id+1
+                    let cancelAction = UIAlertAction(title: "확인", style: .cancel){
+                        (action) in self.Quiz()
+                    }
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
                 }
                 else{
                     let alert = UIAlertController(title: "틀렸습니다!", message: nil, preferredStyle: UIAlertController.Style.alert)
-                    let cancelAction = UIAlertAction(title: "확인", style: .cancel, handler: nil)
+                    id = id+1
+                    let cancelAction = UIAlertAction(title: "확인", style: .cancel){
+                        (action) in self.Quiz()
+                    }
                     alert.addAction(cancelAction)
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -62,7 +97,7 @@ class QuizViewController: UIViewController {
             default :
                 print(response.response?.statusCode)
             }
-        })
+        }
     }
-
+    
 }
