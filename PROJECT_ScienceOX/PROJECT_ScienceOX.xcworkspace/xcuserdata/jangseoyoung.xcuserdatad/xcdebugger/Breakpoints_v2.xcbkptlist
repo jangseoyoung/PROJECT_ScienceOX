@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "3D074F0A-29C8-4ED4-B71D-C8D361D2DC24"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "70CD41C8-475B-4828-B267-24122B8A71C7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PROJECT_ScienceOX/VC/QuizViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "Quiz()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "70CD41C8-475B-4828-B267-24122B8A71C7 - 734149f5199fe704"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in PROJECT_ScienceOX.QuizViewController.Quiz() -&gt; ()"
+                  moduleName = "PROJECT_ScienceOX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jangseoyoung/Documents/GitHub/PROJECT_ScienceOX/PROJECT_ScienceOX/PROJECT_ScienceOX/VC/QuizViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "70CD41C8-475B-4828-B267-24122B8A71C7 - 734149f5199fe704"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in PROJECT_ScienceOX.QuizViewController.Quiz() -&gt; ()"
+                  moduleName = "PROJECT_ScienceOX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jangseoyoung/Documents/GitHub/PROJECT_ScienceOX/PROJECT_ScienceOX/PROJECT_ScienceOX/VC/QuizViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "70CD41C8-475B-4828-B267-24122B8A71C7 - 734149f5199fe704"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any, Alamofire.AFError&gt;) -&gt; () in PROJECT_ScienceOX.QuizViewController.Quiz() -&gt; ()"
+                  moduleName = "PROJECT_ScienceOX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jangseoyoung/Documents/GitHub/PROJECT_ScienceOX/PROJECT_ScienceOX/PROJECT_ScienceOX/VC/QuizViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "1672">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
