@@ -8,13 +8,15 @@
 import Foundation
 import Alamofire
 
+var id : Int = 1
+
 enum NetworkingAPI{
-    case ProvideQuiz(_ question : String, isCorrect : String)
+    case ProvideQuiz(_ question : String, _ isCorrect : Bool)
     
     var path : String{
         switch self {
         case .ProvideQuiz:
-            return "/question"
+            return "/question/\(id)"
         }
     }
     
@@ -23,12 +25,7 @@ enum NetworkingAPI{
     }
     
     var parameters : [String:Any]{
-        switch self {
-        case .ProvideQuiz(let question, let isCorrect):
-            return [:]
-        default:
-            return [:]
-        }
+        return [:]
     }
 }
 
