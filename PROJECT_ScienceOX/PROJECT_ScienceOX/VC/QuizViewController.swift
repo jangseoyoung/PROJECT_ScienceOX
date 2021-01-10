@@ -10,25 +10,14 @@ import Alamofire
 
 class QuizViewController: UIViewController {
     
+    @IBOutlet weak var quizTextView : UITextView!
+    
     let httpclient = HTTPClient()
     private var getmodel : ProvideQuizModel?
     
     var quiz = String()
     var isCorrect = Bool()
     var correct = Bool()
-    
-    @IBOutlet weak var quizTextView : UITextView!
-    
-    
-    @IBAction func correctButton(_ sender : UIButton){
-        correct = true
-        Answer()
-    }
-    
-    @IBAction func incorrectButton(_ sender : UIButton){
-        correct = false
-        Answer()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +30,17 @@ class QuizViewController: UIViewController {
         reloadInputViews()
     }
     
+    @IBAction func correctButton(_ sender : UIButton){
+        correct = true
+        Answer()
+    }
+    
+    @IBAction func incorrectButton(_ sender : UIButton){
+        correct = false
+        Answer()
+    }
+    
+   
     func Quiz(){
         httpclient.get(NetworkingAPI.ProvideQuiz(quiz, isCorrect)).responseJSON {(response) in
             switch response.response?.statusCode{
